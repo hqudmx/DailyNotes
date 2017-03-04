@@ -1,0 +1,46 @@
+Android通过Canvas类暴露了很多drawXXX方法，我们可以通过这些方法绘制各种各样的图形。Canvas绘图有三个基本要素：Canvas、绘图坐标系以及Paint。
+
+默认情况下，绘图坐标系与Canvas坐标系完全重合，即初始状况下，绘图坐标系的坐标原点也在View的左上角，从原点向右为x轴正半轴，从原点向下为y轴正半轴。
+但不同于Canvas坐标系，绘图坐标系并不是一成不变的，可以通过调用Canvas的translate方法平移坐标系，可以通过Canvas的rotate方法旋转坐标系，
+还可以通过Canvas的scale方法缩放坐标系，而且需要注意的是，translate、rotate、scale的操作都是基于当前绘图坐标系的，而不是基于Canvas坐标系，
+一旦通过以上方法对坐标系进行了操作之后，当前绘图坐标系就变化了，以后绘图都是基于更新的绘图坐标系了。也就是说，
+真正对我们绘图有用的是绘图坐标系而非Canvas坐标系。
+
+//扇形，RectF(0, 0, 128, 128)，内切圆对应正方行左上右下坐标
+canvas.drawArc(new RectF(0, 0, 128, 128), 0, 360, true, new Paint(
+Paint.ANTI_ALIAS_FLAG));
+参数1：圆的范围大小
+参数2：起始角度
+参数3：圆心角角度，360为圆，180为半圆
+参数4：为true时
+
+
+为false时：
+
+
+
+
+参数5：画笔Paint，可以设置画线or填充，设置颜色，设置线的粗细等等第四个参数
+
+paint.setColor(Color.BLUE);
+paint.setStrokeWidth(80);
+
+RectF rectF = new RectF(-200, -200, 200, 200);
+canvas.drawArc(rectF, 0, 120, false, paint);
+paint.setColor(Color.GREEN);
+canvas.drawArc(rectF, 120, 120, false, paint);
+paint.setColor(Color.RED);
+canvas.drawArc(rectF, 240, 120, false, paint);
+
+
+
+
+//为Paint设置渐变器
+Shader mShader = new LinearGradient(0, 0, 40, 60,
+        new int[]{
+                Color.RED, Color.GREEN, Color.BLUE, Color.YELLOW},
+        null, Shader.TileMode.REPEAT);
+//为Paint设置渐变器
+paint.setShader(mShader);
+//设置阴影
+paint.setShadowLayer(45, 10, 10, Color.GRAY);
