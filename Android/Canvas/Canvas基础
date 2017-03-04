@@ -11,11 +11,10 @@ canvas.drawArc(new RectF(0, 0, 128, 128), 0, 360, true, new Paint(
 Paint.ANTI_ALIAS_FLAG));
 参数1：圆的范围大小
 参数2：起始角度
-参数3：圆心角角度，360为圆，180为半圆
-参数4：为true时
+参数3：圆false时
 ![iamge](https://github.com/hqudmx/DailyNotes/blob/master/Android/Canvas/%E6%88%AA%E5%9B%BE.png)
 
-为false时：
+为true时：
 
 
 
