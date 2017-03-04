@@ -13,7 +13,7 @@ Paint.ANTI_ALIAS_FLAG));
 参数2：起始角度
 参数3：圆心角角度，360为圆，180为半圆
 参数4：为true时
-
+![iamge](https://github.com/hqudmx/DailyNotes/blob/master/Android/Canvas/%E6%88%AA%E5%9B%BE.png)
 
 为false时：
 
